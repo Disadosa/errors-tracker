@@ -1,0 +1,17 @@
+{
+  "name": "errors-tracker",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "http-server",
+    "dev-server": "npm run server -- --watch",
+    "server": "node ./server.js"
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "http-server": "14.1.1",
+    "srvx": "^0.1.1"
+  }
+}

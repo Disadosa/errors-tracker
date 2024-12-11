@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Errors Tracker</title>
+</head>
+
+<body>
+  <button id="test">Throw error</button>
+  <script type="module">
+    import { initErrorsTracker } from './index.js';
+
+    const url = '';
+
+    initErrorsTracker(url);
+
+    const button = document.getElementById('test');
+    button.addEventListener('click', () => {
+      throw new Error('My custom error');
+    });
+  </script>
+</body>
+
+</html>
