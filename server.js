@@ -3,11 +3,18 @@ import { serve } from "srvx";
 const server = serve({
   port: process.env.PORT || 3000,
   async fetch(request) {
-    const text = await request.text();
-
-    if (!text.startsWith('{"message":')) {
+    let json;
+    try {
+      json = await request.json();
+    } catch (error) {
       return getResponseWithHeaders();
     }
+
+    if (!json?.message) {
+      return getResponseWithHeaders();
+    }
+ 
+    const text = JSON.stringify(json, null, 2);
 
     // Replace with your actual bot token and chat ID
     const botToken = process.env.BOT_TOKEN;
